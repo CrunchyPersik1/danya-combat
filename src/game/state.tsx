@@ -63,7 +63,12 @@ export function loadState(): GameState {
 }
 
 export function saveState(s: GameState) {
-  try { localStorage.setItem(SAVE_KEY, JSON.stringify(s)) } catch (e) { /* ignore */ }
+  try {
+    const clean: any = Object.assign({}, s)
+    delete clean._boxResult
+    delete clean._lvlUp
+    localStorage.setItem(SAVE_KEY, JSON.stringify(clean))
+  } catch (e) { /* ignore */ }
 }
 
 // ---------- derived math ----------
@@ -265,7 +270,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
     const base = clickPower(s)
     const crit = Math.random() < 0.07
     const gain = base * (crit ? 6 : 1)
-    const rub = Math.random() < 0.2 ? (1 + Math.floor(Math.random() * 2)) : 0
+    const rub = Math.random() < 0.25 ? (1 + Math.floor(Math.random() * 3)) : 0
     set(function (p) {
       return Object.assign({}, p, {
         coins: p.coins + gain,

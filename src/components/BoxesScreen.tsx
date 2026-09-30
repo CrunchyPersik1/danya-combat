@@ -27,7 +27,7 @@ export default function BoxesScreen() {
         <div className="cur-chip"><b>💰</b> {fmt(state.coins)}</div>
         <div className="cur-chip"><b>💎</b> {fmt(state.diamonds)}</div>
         <div className="cur-chip"><b>🏅</b> {fmt(state.gold)}</div>
-        <div className="cur-chip"><b>📦</b> {state.boxesOpened}</div>
+        <div className="cur-chip"><b>📦</b> Открыто: {state.boxesOpened}</div>
       </div>
 
       <div className="box-list">

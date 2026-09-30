@@ -19,7 +19,7 @@ export default function ClickerScreen() {
   const [flash, setFlash] = useState(0)
   const [waveKey, setWaveKey] = useState(0)
   const pitchRef = useRef(0)
-  const [hue, setHue] = useState(0)
+  const [hue, setHue] = useState(270)
   const skin = skinById(state.activeSkin)
   const anim = state.settings.anim
 
